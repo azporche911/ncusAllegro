@@ -6,7 +6,7 @@ DisplayContainer::DisplayContainer()
     al_init_primitives_addon();
 }
 
-DisplayContainer* DisplayContainer::setDisplay(int w, int h)
+DisplayContainer* DisplayContainer::setWindowSize(int w, int h)
 {
     width = w;
     height = h;

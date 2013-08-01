@@ -12,7 +12,7 @@ class DisplayContainer
 
     DisplayContainer();
     DisplayContainer* fullScreen();
-    DisplayContainer* setDisplay(int w, int h);
+    DisplayContainer* setWindowSize(int w, int h);
     DisplayContainer* destroyDisplay();
     DisplayContainer* delay(double t);
     DisplayContainer* draw();
