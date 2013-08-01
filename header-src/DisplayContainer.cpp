@@ -1,12 +1,12 @@
-#include "../header/SomeObject.h"
-SomeObject::SomeObject()
+#include "../header/DisplayContainer.h"
+DisplayContainer::DisplayContainer()
 {
     al_init(); // I'm not checking the return value for simplicity.
     al_init_image_addon();
     al_init_primitives_addon();
 }
 
-SomeObject* SomeObject::setDisplay(int w, int h)
+DisplayContainer* DisplayContainer::setDisplay(int w, int h)
 {
     width = w;
     height = h;
@@ -14,7 +14,7 @@ SomeObject* SomeObject::setDisplay(int w, int h)
     return this;
 }
 
-SomeObject* SomeObject::fullScreen()
+DisplayContainer* DisplayContainer::fullScreen()
 {
     ALLEGRO_DISPLAY_MODE disp_data;
     al_get_display_mode(al_get_num_display_modes() - 1, &disp_data);
@@ -27,26 +27,26 @@ SomeObject* SomeObject::fullScreen()
     return this;
 }
 
-SomeObject* SomeObject::delay(double t)
+DisplayContainer* DisplayContainer::delay(double t)
 {
     al_rest(t);
 
     return this;
 }
 
-SomeObject* SomeObject::destroyDisplay()
+DisplayContainer* DisplayContainer::destroyDisplay()
 {
     al_destroy_display(display);
 
     return this;
 }
 
-SomeObject* SomeObject::draw()
+DisplayContainer* DisplayContainer::draw()
 {
      display = al_create_display(width, height);
 }
 
-void SomeObject::printSomething()
+void DisplayContainer::printSomething()
 {
     std::cout<<"im here!";
 }
