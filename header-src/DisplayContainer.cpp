@@ -14,6 +14,12 @@ DisplayContainer* DisplayContainer::setWindowSize(int w, int h)
     return this;
 }
 
+DisplayContainer* DisplayContainer::setImage(char* path)
+{
+    bmImage = al_load_bitmap(path);
+    return this;
+}
+
 DisplayContainer* DisplayContainer::fullScreen()
 {
     ALLEGRO_DISPLAY_MODE disp_data;
@@ -43,7 +49,17 @@ DisplayContainer* DisplayContainer::destroyDisplay()
 
 DisplayContainer* DisplayContainer::draw()
 {
-     display = al_create_display(width, height);
+    display = al_create_display(width, height);
+
+    return this;
+}
+
+DisplayContainer* DisplayContainer::flip()
+{
+    al_draw_bitmap(bmImage, 0, 0, 20);
+    al_flip_display();
+
+    return this;
 }
 
 void DisplayContainer::printSomething()
