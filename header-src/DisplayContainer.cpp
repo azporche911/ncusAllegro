@@ -1,9 +1,11 @@
 #include "../header/DisplayContainer.h"
+
 DisplayContainer::DisplayContainer()
 {
     al_init(); // I'm not checking the return value for simplicity.
     al_init_image_addon();
     al_init_primitives_addon();
+    al_install_keyboard();
 }
 
 DisplayContainer* DisplayContainer::setWindowSize(int w, int h)
@@ -11,12 +13,6 @@ DisplayContainer* DisplayContainer::setWindowSize(int w, int h)
     width = w;
     height = h;
 
-    return this;
-}
-
-DisplayContainer* DisplayContainer::setImage(char* path)
-{
-    bmImage = al_load_bitmap(path);
     return this;
 }
 
@@ -56,9 +52,7 @@ DisplayContainer* DisplayContainer::draw()
 
 DisplayContainer* DisplayContainer::flip()
 {
-    al_draw_bitmap(bmImage, 0, 0, 20);
     al_flip_display();
-
     return this;
 }
 
